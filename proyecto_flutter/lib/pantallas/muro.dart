@@ -73,7 +73,8 @@ class _MuroState extends State<Muro> {
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text("Loading");
+            return Scaffold(
+                body: Text("Loading"));
           }
           {
             //recibimps tpdps los datos del usuario
@@ -94,17 +95,20 @@ class _MuroState extends State<Muro> {
                     height: 50,
                   ),
                   InkWell(
-                      onTap: () {
+                      onTap: () async {
                         //hacemos logout
                         FirebaseAuth auth = FirebaseAuth.instance;
-                        auth.signOut();
+                        await auth.signOut().then((value) {
+                          //regresamos a login
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(), //#0006
+                              ));
 
-                        //regresamos a login
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(), //#0006
-                            ));
+                        });
+
+
                       },
                       child: Text("LOGOUT"))
                 ],

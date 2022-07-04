@@ -30,6 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
+  String errorMessage = "";
+
   bool estoyLogeado = false;
 
   Future<void> checkEstadoUsuario()async {
@@ -68,6 +70,29 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       )
   );
+
+  //validamos si el email esta insertado
+  String? validateEmail(String email){
+    if(email == null || email.isEmpty){
+      return 'E-mail address is required';
+    }
+    return null;
+  }
+  //validamos la longitud de la password
+  String? validatePass(String pass){
+    if(pass == null || pass.isEmpty){
+      return 'Pass is required';
+    }
+    else{
+      if(pass.length < 6){
+        return 'Pass is short';
+
+      }
+
+    }
+    return null;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -167,7 +192,107 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: MediaQuery.of(context).size.width - 40,
                     height: 60,
                     child: ElevatedButton.icon(
-                      onPressed: () {},
+                      onPressed: () async {
+
+                        var email = emailController.text.toString();
+                        var pass = passController.text.toString();
+
+
+                        //validamos email
+                        var emailValido = validateEmail(email);
+                        var passValido = validatePass(pass);
+                        if (emailValido == 'E-mail address is required'){
+                          print("email falta");
+                          Fluttertoast.showToast(
+                              msg: "emailrequired".tr().toString(),
+                              toastLength: Toast.LENGTH_LONG,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: AppColors.rojoMovMap,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        }
+                        else {
+                          if(passValido == "Pass is required"){
+                            Fluttertoast.showToast(
+                                msg: "passrequired".tr().toString(),
+                                toastLength: Toast.LENGTH_LONG,
+                                gravity: ToastGravity.CENTER,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: AppColors.rojoMovMap,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+
+                          }
+                          else{
+                            if(passValido == "Pass is short"){
+                              Fluttertoast.showToast(
+                                  msg: "passcorta".tr().toString(),
+                                  toastLength: Toast.LENGTH_LONG,
+                                  gravity: ToastGravity.CENTER,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: AppColors.rojoMovMap,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+
+                            }
+                          }
+                          try{
+                            await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: pass).then((value) {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Muro(), //#0006
+                                  ));
+                            });
+
+                            final user = FirebaseAuth.instance.currentUser!;
+
+
+
+                          } on FirebaseAuthException catch (error){
+                            errorMessage = error.message!;
+                            print("ERROR ${errorMessage}");
+
+                            if(errorMessage == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                              Fluttertoast.showToast(
+                                  msg: "emailnoexiste".tr().toString(),
+                                  toastLength: Toast.LENGTH_LONG,
+                                  gravity: ToastGravity.CENTER,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: AppColors.rojoMovMap,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+
+                            }
+                            if(errorMessage == "The password is invalid or the user does not have a password."){
+                              Fluttertoast.showToast(
+                                  msg: "nopassword".tr().toString(),
+                                  toastLength: Toast.LENGTH_LONG,
+                                  gravity: ToastGravity.CENTER,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: AppColors.rojoMovMap,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+
+                            }
+
+                            setState((){
+
+                            });
+
+                          }
+
+
+                        }
+
+
+
+                        setState((){
+
+                        });
+
+                      },
                       label: Text(
                         'login'.tr(),
                         style: const TextStyle(fontSize: 16),

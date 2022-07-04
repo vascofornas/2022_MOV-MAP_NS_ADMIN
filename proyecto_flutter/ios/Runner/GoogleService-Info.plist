@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>191203133016-f1bkt37gp753arj5nj5lp443sh5p9o84.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.191203133016-f1bkt37gp753arj5nj5lp443sh5p9o84</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>191203133016-njg2c4l57qgrt4rbuv6sucb0ent6t1p7.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBUz3-hImkmb6fqO1Y4qkpTUaj2IPD4DY0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>191203133016</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>red.faro.movmapNsAdmin</string>
+	<key>PROJECT_ID</key>
+	<string>movmap-ns</string>
+	<key>STORAGE_BUCKET</key>
+	<string>movmap-ns.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:191203133016:ios:a3b80f8ad6616e7cb62c2d</string>
+</dict>
+</plist>

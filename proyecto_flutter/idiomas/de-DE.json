@@ -74,7 +74,9 @@
   "emailbad": "Die E-Mail-Adresse ist schlecht formatiert",
   "emailya": "Die E-Mail-Adresse wird bereits von einem anderen Konto verwendet",
   "cuentacreada": "Ihr Benutzerkonto wurde erfolgreich erstellt.",
-  "emailverificacion": "Sie haben Ihre E-Mail-Adresse nicht bestätigt. Sie erhalten in Kürze eine E-Mail mit einem Link zur Bestätigung, dass Sie der Inhaber der E-Mail-Adresse sind, mit der Sie Ihr Benutzerkonto erstellt haben."
+  "emailverificacion": "Sie haben Ihre E-Mail-Adresse nicht bestätigt. Sie erhalten in Kürze eine E-Mail mit einem Link zur Bestätigung, dass Sie der Inhaber der E-Mail-Adresse sind, mit der Sie Ihr Benutzerkonto erstellt haben.",
+  "emailnoexiste": "Dieses Benutzerkonto existiert nicht.",
+  "nopassword": "Das Passwort ist nicht korrekt."
 
 
 }

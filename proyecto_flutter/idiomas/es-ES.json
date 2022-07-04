@@ -85,6 +85,7 @@
   "emailbad": "La dirección de correo electrónico está mal formateada.",
   "emailya": "La dirección de correo electrónico ya está en uso por otra cuenta",
   "cuentacreada": "Tu cuenta de usuario ha sido creada correctamente.",
-  "emailverificacion": "No has verificado tu email. En breve recibirás un email con un enlace para verificar que eres el propietario de la dirección email con la que has creado tu cuenta de usuario"
-
+  "emailverificacion": "No has verificado tu email. En breve recibirás un email con un enlace para verificar que eres el propietario de la dirección email con la que has creado tu cuenta de usuario",
+  "emailnoexiste": "No existe esta cuenta de usuario.",
+  "nopassword": "La contraseña no es correcta."
 }

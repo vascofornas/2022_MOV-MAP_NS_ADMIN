@@ -74,7 +74,9 @@
   "emailbad": "The email address is badly formatted.",
   "emailya": "The email address is already in use by another account.",
   "cuentacreada": "Your user account has been successfully created.",
-  "emailverificacion": "You have not verified your email. You will shortly receive an email with a link to verify that you are the owner of the email address with which you created your user account."
+  "emailverificacion": "You have not verified your email. You will shortly receive an email with a link to verify that you are the owner of the email address with which you created your user account.",
+  "emailnoexiste": "This user account does not exist",
+  "nopassword": "The password is not correct"
 
 
 }
