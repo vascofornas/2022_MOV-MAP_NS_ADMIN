@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "191203133016",
+    "project_id": "movmap-ns",
+    "storage_bucket": "movmap-ns.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191203133016:android:9d55f0798c110d5db62c2d",
+        "android_client_info": {
+          "package_name": "red.faro.movmap_ns"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191203133016-njg2c4l57qgrt4rbuv6sucb0ent6t1p7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "red.faro.movmap_ns",
+            "certificate_hash": "ca2e1a9b978519c8a0aaf3b0c3035b803938428c"
+          }
+        },
+        {
+          "client_id": "191203133016-5pb4pcrbvvjeigcdka4l3pdltudccsh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlr36Y9BhB80FFNzJxL5p963MNdCPz5ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191203133016-5pb4pcrbvvjeigcdka4l3pdltudccsh1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "191203133016-4a5hpre4jl8cr939dnt4uhk0805q5sf0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "red.faro.movmapNs"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191203133016:android:cc0d526f06f11f51b62c2d",
+        "android_client_info": {
+          "package_name": "red.faro.movmap_ns_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191203133016-5pb4pcrbvvjeigcdka4l3pdltudccsh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlr36Y9BhB80FFNzJxL5p963MNdCPz5ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191203133016-5pb4pcrbvvjeigcdka4l3pdltudccsh1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "191203133016-4a5hpre4jl8cr939dnt4uhk0805q5sf0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "red.faro.movmapNs"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
