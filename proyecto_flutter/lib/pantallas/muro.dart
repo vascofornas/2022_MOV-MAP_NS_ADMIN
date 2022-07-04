@@ -7,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
+import 'package:movmap_ns_admin/pantallas/usuarios.dart';
 import 'package:movmap_ns_admin/pantallas/verificar_email.dart';
 
 
@@ -133,20 +134,30 @@ class _MuroState extends State<Muro> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                                width: 120,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                    ),
-                                    borderRadius: BorderRadius.all(Radius.circular(20))
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text("Usuarios",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
-                                )
+                            InkWell(
+                              onTap: (){
+                                print("Abrir usuarios");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Usuarios(), //#0006
+                                    ));
+                              },
+                              child: Container(
+                                  width: 120,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text("Usuarios",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
+                                  )
+                              ),
                             ),
                             Container(
                                 width: 120,
