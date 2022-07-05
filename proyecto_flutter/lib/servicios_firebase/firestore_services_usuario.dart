@@ -53,6 +53,38 @@ class ServiciosFirebaseUsuario   {
         .catchError((error) => print("Failed to update user: $error"));
   }
 
+  //UPDATE USER AMBASSADOR
+  Future<void> updateUserAmbassador(String email, bool valor) {
+
+    return _usuarios
+        .doc(email)
+        .update({'usuarioEsAmbassador': valor})
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error"));
+  }
+  //UPDATE USER ADMIN
+  Future<void> updateUserAdministrador(String email, bool valor) {
+
+    return _usuarios
+        .doc(email)
+        .update({'usuarioEsAdministrador': valor})
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error"));
+  }
+
+  //UPDATE USER bloquear
+  Future<void> updateUserActivoCambiar(String email, bool valor) {
+
+    return _usuarios
+        .doc(email)
+        .update({'usuarioActivo': valor})
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error"));
+  }
+
+
+
+
 
 
 

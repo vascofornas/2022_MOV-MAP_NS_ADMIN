@@ -98,8 +98,25 @@ class _MuroState extends State<Muro> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         backgroundColor: Colors.white,
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.logout, color: Colors.white),
+            onPressed: () {
+              //hacemos logout
+              FirebaseAuth auth = FirebaseAuth.instance;
+              auth.signOut().then((value) {
+                //regresamos a login
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(), //#0006
+                    ));
+
+              });
+            },
+          ),
           backgroundColor: Colors.red,
           title: Text("Administración de Mov-Map ",style: TextStyle(color: Colors.white),),
         ),
