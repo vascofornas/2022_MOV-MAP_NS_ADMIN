@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
+import 'package:movmap_ns_admin/pantallas/perfiles.dart';
 import 'package:movmap_ns_admin/pantallas/usuarios.dart';
 import 'package:movmap_ns_admin/pantallas/verificar_email.dart';
 
@@ -205,20 +206,31 @@ class _MuroState extends State<Muro> {
                                   )
                               ),
                             ),
-                            Container(
-                                width: 120,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    border: Border.all(
+                            InkWell(
+                              onTap: (){
+                                print("Abrir perfiles");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Perfiles(), //#0006
+                                    ));
+
+                              },
+                              child: Container(
+                                  width: 120,
+                                  height: 40,
+                                  decoration: BoxDecoration(
                                       color: Colors.black,
-                                    ),
-                                    borderRadius: BorderRadius.all(Radius.circular(20))
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text("Usuarios",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
-                                )
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text("Perfiles",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
+                                  )
+                              ),
                             ),
                           ],
                         )
