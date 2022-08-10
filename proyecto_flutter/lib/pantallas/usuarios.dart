@@ -82,7 +82,7 @@ class _UsuariosState extends State<Usuarios> {
                 icon: Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () => Navigator.of(context).pop(),
               ),
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.black,
               title: Text(
                 "Usuarios de Mov-Map ",
                 style: TextStyle(color: Colors.white),

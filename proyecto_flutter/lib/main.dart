@@ -6,6 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movmap_ns_admin/pantallas/inicio_random.dart';
+import 'package:movmap_ns_admin/styles/colors.dart';
 
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -64,7 +65,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
+
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,

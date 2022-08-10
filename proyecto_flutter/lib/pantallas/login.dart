@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 180,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage("assets/images/app_icon.png"))),
+                                  image: AssetImage("assets/images/ic_launcher_round.png"))),
                         ),
                       ),
                       Text("ADMINISTRACION", style: TextStyle(color: Colors.black54,fontWeight: FontWeight.bold,fontSize: 18),)
@@ -134,16 +134,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: Icon(
                           Icons.email,
                           size: 30,
-                          color: AppColors.rojoMovMap,
+                          color: AppColors.negroMovMap,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: AppColors.rojoMovMap, width: 2.0),
+                              BorderSide(color: AppColors.negroMovMap, width: 2.0),
                           borderRadius: BorderRadius.circular(25),
                         ),
                         disabledBorder: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: AppColors.rojoMovMap, width: 2.0),
+                              BorderSide(color: AppColors.negroMovMap, width: 2.0),
                           borderRadius: BorderRadius.circular(25),
                         ),
                         labelText: "email".tr(),
@@ -166,16 +166,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: Icon(
                           Icons.password,
                           size: 30,
-                          color: AppColors.rojoMovMap,
+                          color: AppColors.negroMovMap,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: AppColors.rojoMovMap, width: 2.0),
+                              BorderSide(color: AppColors.negroMovMap, width: 2.0),
                           borderRadius: BorderRadius.circular(25),
                         ),
                         disabledBorder: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: AppColors.rojoMovMap, width: 2.0),
+                              BorderSide(color: AppColors.negroMovMap, width: 2.0),
                           borderRadius: BorderRadius.circular(25),
                         ),
                         labelText: "password".tr(),
@@ -192,6 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: MediaQuery.of(context).size.width - 40,
                     height: 60,
                     child: ElevatedButton.icon(
+
                       onPressed: () async {
 
                         var email = emailController.text.toString();
@@ -315,88 +316,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 25,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      InkWell(
-                        onTap: (){
-                          setState(() {
-                            context.setLocale(const Locale('es', 'ES')) ;
-                            var a = context.locale.languageCode;
-                            print("current locale ${a}");
 
-                          });
-                        },
-                        child: context.locale.languageCode == "es"?const Chip(
-                          label: Text(
-                            'Español',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          backgroundColor: Colors.red,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ):
-                        const Chip(
-                          label: Text(
-                            'Español',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          backgroundColor: Colors.grey,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ),
-                      ),
-                      InkWell(
-                          onTap: (){
-                            setState(() {
-                              context.setLocale(const Locale('en', 'EN')) ;
-
-                            });
-                          },
-                        child: context.locale.languageCode == "en"?const Chip(
-                          label: Text('English',style: TextStyle(color: Colors.white),),
-                          backgroundColor: Colors.red,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ):const Chip(
-                          label: Text('English',style: TextStyle(color: Colors.white),),
-                          backgroundColor: Colors.grey,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: (){
-                          setState(() {
-                            context.setLocale(const Locale('fr', 'FR')) ;
-
-                          });
-                        },
-                        child: context.locale.languageCode == "fr"?const Chip(
-                          label: Text('Français',style: TextStyle(color: Colors.white),),
-                          backgroundColor: Colors.red,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ):const Chip(
-                          label: Text('Français',style: TextStyle(color: Colors.white),),
-                          backgroundColor: Colors.grey,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: (){
-                          setState(() {
-                            context.setLocale(const Locale('de', 'DE')) ;
-
-                          });
-                        },
-                        child: context.locale.languageCode == "de"?const Chip(
-                          label: Text('Deutsch',style: TextStyle(color: Colors.white),),
-                          backgroundColor: Colors.red,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ):const Chip(
-                          label: Text('Deutsch',style: TextStyle(color: Colors.white),),
-                          backgroundColor: Colors.grey,
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-                        ),
-                      ),
-                    ],
-                  ),
                   const SizedBox(
                     height: 45,
                   ),

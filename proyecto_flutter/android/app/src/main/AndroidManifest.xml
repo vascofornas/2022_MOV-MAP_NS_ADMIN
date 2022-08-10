@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="red.faro.movmap_ns_admin">
    <application
-        android:label="movmap_ns_admin"
+        android:label="Mov-Map Adm"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

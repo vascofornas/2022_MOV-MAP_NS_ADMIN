@@ -77,7 +77,7 @@ class SplashScreenState extends State<SplashScreen> {
                     height: 60,
                     decoration: new BoxDecoration(
                         image: DecorationImage(
-                          image: new AssetImage('assets/images/movmap_transparente1024.png'),
+                          image: new AssetImage('assets/images/ic_launcher_round.png'),
                         )),
                   ),
                   Container(
@@ -88,7 +88,7 @@ class SplashScreenState extends State<SplashScreen> {
                         color: Colors.red,
                         border: Border.all(color: Colors.red)),
                     child: Text(
-                      "Ⓒ Mov-Map v${_projectVersion}",
+                      "Ⓒ Mov-Map Admin v${_projectVersion}",
                       style: TextStyle(
                           color: Colors.white,
                           backgroundColor: Colors.red,

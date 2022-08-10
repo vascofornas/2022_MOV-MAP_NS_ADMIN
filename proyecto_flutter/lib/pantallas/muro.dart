@@ -101,6 +101,7 @@ class _MuroState extends State<Muro> {
 
         backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.black,
           leading: IconButton(
             icon: Icon(Icons.logout, color: Colors.white),
             onPressed: () {
@@ -117,7 +118,7 @@ class _MuroState extends State<Muro> {
               });
             },
           ),
-          backgroundColor: Colors.red,
+
           title: Text("Administración de Mov-Map ",style: TextStyle(color: Colors.white),),
         ),
         body: StreamBuilder<DocumentSnapshot>(
@@ -138,13 +139,16 @@ class _MuroState extends State<Muro> {
                   children: [
                     esAdmin ? Column(
                       children: [
-                        Container(
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/images/app_icon.png")
-                              )
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 80,
+                            width: 80,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage("assets/images/ic_launcher_round.png")
+                                )
+                            ),
                           ),
                         ),
                         SizedBox(height: 40,),
@@ -164,7 +168,7 @@ class _MuroState extends State<Muro> {
                                   width: 120,
                                   height: 40,
                                   decoration: BoxDecoration(
-                                      color: Colors.red,
+                                      color: Colors.black,
                                       border: Border.all(
                                         color: Colors.black,
                                       ),
@@ -180,7 +184,7 @@ class _MuroState extends State<Muro> {
                                 width: 120,
                                 height: 40,
                                 decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    color: Colors.black,
                                     border: Border.all(
                                       color: Colors.black,
                                     ),

@@ -49,7 +49,7 @@ dependencies:
 
 
 flutter_native_splash:
-  image: assets/images/app_icon.png
+  image: assets/images/ic_launcher_round.png
   color: "#ffffff"
 
 dev_dependencies:
