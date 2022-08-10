@@ -8,6 +8,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
 import 'package:movmap_ns_admin/pantallas/verificar_email.dart';
+import 'package:movmap_ns_admin/provider/todos_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../servicios_firebase/firestore_services_usuario.dart';
 import '../styles/colors.dart';
@@ -29,6 +31,7 @@ class _UsuariosState extends State<Usuarios> {
   late bool esAdmin = false;
   TextEditingController controlador = TextEditingController();
   String textoBuscado = "";
+  int numeroUsuarios = 0;
 
   final Stream<DocumentSnapshot> _usersStream = FirebaseFirestore.instance
       .collection("usuarios")
@@ -71,6 +74,11 @@ class _UsuariosState extends State<Usuarios> {
           ));
     });
   }
+  Future<void> getNumero(int num) async{
+    setState(() {
+      numeroUsuarios = num;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +92,7 @@ class _UsuariosState extends State<Usuarios> {
               ),
               backgroundColor: Colors.black,
               title: Text(
-                "Usuarios de Mov-Map ",
+                "Usuarios (${Provider.of<TodoProvider>(context).numUsuarios})",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -131,7 +139,8 @@ class _UsuariosState extends State<Usuarios> {
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
                             //snapshot.data!.docs[index].get('usuarioEmail'),
-
+                           numeroUsuarios = snapshot.data!.docs.length;
+                          Provider.of<TodoProvider>(context).cambiarNumUsuarios(numeroUsuarios);
                             var esAmbassador = snapshot.data!.docs[index]
                                 .get('usuarioEsAmbassador');
                             var esAdministrador = snapshot.data!.docs[index]

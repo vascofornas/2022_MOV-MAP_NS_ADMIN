@@ -8,6 +8,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
 import 'package:movmap_ns_admin/pantallas/verificar_email.dart';
+import 'package:movmap_ns_admin/provider/todos_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../servicios_firebase/firestore_services_usuario.dart';
 import '../styles/colors.dart';
@@ -81,6 +83,7 @@ class _PerfilesState extends State<Perfiles> {
   bool esSki = false;
   bool esSnow = false;
   bool esSurf = false;
+  int numeroPerfiles = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -102,8 +105,8 @@ class _PerfilesState extends State<Perfiles> {
                 onPressed: () => Navigator.of(context).pop(),
               ),
               backgroundColor: Colors.black,
-              title: const Text(
-                "Perfiles de usuarios de Mov-Map ",
+              title: Text(
+                "Perfiles (${Provider.of<TodoProvider>(context).numPerfiles}) ",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -150,6 +153,8 @@ class _PerfilesState extends State<Perfiles> {
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
                             //snapshot.data!.docs[index].get('usuarioEmail'),
+                            numeroPerfiles = snapshot.data!.docs.length;
+                            Provider.of<TodoProvider>(context).cambiarNumPerfiles(numeroPerfiles);
 
                             var esAmbassador = snapshot.data!.docs[index]
                                 .get('esAmbassador');

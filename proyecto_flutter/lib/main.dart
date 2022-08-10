@@ -8,10 +8,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:movmap_ns_admin/pantallas/inicio_random.dart';
+import 'package:movmap_ns_admin/provider/todos_provider.dart';
 import 'package:movmap_ns_admin/servicios_firebase/firestore_services_usuario.dart';
 import 'package:movmap_ns_admin/styles/colors.dart';
 import 'package:movmap_ns_admin/widgets/notification_badge.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:provider/provider.dart';
 
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -47,17 +49,23 @@ main() async {
 
 
   runApp(
-    EasyLocalization(
-        path: "idiomas",
-        fallbackLocale: Locale("es", "ES"),
-        saveLocale: true,
-        supportedLocales: [
-          Locale("en", "EN"),
-          Locale("fr", "FR"),
-          Locale("de", "DE"),
-          Locale("es", "ES")
-        ],
-        child: MyApp()
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => TodoProvider()),
+
+      ],
+      child: EasyLocalization(
+          path: "idiomas",
+          fallbackLocale: Locale("es", "ES"),
+          saveLocale: true,
+          supportedLocales: [
+            Locale("en", "EN"),
+            Locale("fr", "FR"),
+            Locale("de", "DE"),
+            Locale("es", "ES")
+          ],
+          child: MyApp()
+      ),
     ),
   );
 }

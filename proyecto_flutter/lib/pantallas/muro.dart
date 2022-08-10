@@ -10,6 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
 import 'package:movmap_ns_admin/pantallas/perfiles.dart';
+import 'package:movmap_ns_admin/pantallas/ubicaciones.dart';
 import 'package:movmap_ns_admin/pantallas/usuarios.dart';
 import 'package:movmap_ns_admin/pantallas/verificar_email.dart';
 
@@ -191,7 +192,7 @@ class _MuroState extends State<Muro> {
                                     ));
                               },
                               child: Container(
-                                  width: 120,
+                                  width: 140,
                                   height: 40,
                                   decoration: BoxDecoration(
                                       color: Colors.black,
@@ -217,7 +218,7 @@ class _MuroState extends State<Muro> {
 
                               },
                               child: Container(
-                                  width: 120,
+                                  width: 140,
                                   height: 40,
                                   decoration: BoxDecoration(
                                       color: Colors.black,
@@ -229,6 +230,63 @@ class _MuroState extends State<Muro> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text("Perfiles",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
+                                  )
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 40,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            InkWell(
+                              onTap: (){
+                                print("Abrir ubicaciones");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Ubicaciones(), //#0006
+                                    ));
+                              },
+                              child: Container(
+                                  width: 140,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text("Ubicaciones",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
+                                  )
+                              ),
+                            ),
+                            InkWell(
+                              onTap: (){
+                                print("Abrir lof");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Perfiles(), //#0006
+                                    ));
+
+                              },
+                              child: Container(
+                                  width: 140,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text("Log",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
                                   )
                               ),
                             ),
