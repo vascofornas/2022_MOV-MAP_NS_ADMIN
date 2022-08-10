@@ -56,11 +56,19 @@ class ServiciosFirebaseUsuario   {
   }
 
   //UPDATE USER AMBASSADOR
-  Future<void> updateUserAmbassador(String email, bool valor) {
+  Future<void> updateUserAmbassadorUsuarios(String email, bool valor) {
 
     return _usuarios
         .doc(email)
         .update({'usuarioEsAmbassador': valor})
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error"));
+  }
+  Future<void> updateUserAmbassadorPerfiles(String email, bool valor) {
+
+    return _perfiles
+        .doc(email)
+        .update({'esAmbassador': valor})
         .then((value) => print("User Updated"))
         .catchError((error) => print("Failed to update user: $error"));
   }

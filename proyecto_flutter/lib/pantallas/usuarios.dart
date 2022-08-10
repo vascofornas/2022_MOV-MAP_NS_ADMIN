@@ -206,7 +206,10 @@ class _UsuariosState extends State<Usuarios> {
                                             ? InkWell(
                                           onTap: () {
                                             ServiciosFirebaseUsuario()
-                                                .updateUserAmbassador(email,
+                                                .updateUserAmbassadorUsuarios(email,
+                                                false);
+                                            ServiciosFirebaseUsuario()
+                                                .updateUserAmbassadorPerfiles(email,
                                                 false);
                                           },
                                           child: Container(
@@ -238,7 +241,10 @@ class _UsuariosState extends State<Usuarios> {
                                             : InkWell(
                                           onTap: () {
                                             ServiciosFirebaseUsuario()
-                                                .updateUserAmbassador(email,
+                                                .updateUserAmbassadorUsuarios(email,
+                                                true);
+                                            ServiciosFirebaseUsuario()
+                                                .updateUserAmbassadorPerfiles(email,
                                                 true);
                                           },
                                           child: Container(
