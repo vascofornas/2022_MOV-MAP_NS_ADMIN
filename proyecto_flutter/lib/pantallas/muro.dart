@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -11,6 +13,7 @@ import 'package:movmap_ns_admin/pantallas/usuarios.dart';
 import 'package:movmap_ns_admin/pantallas/verificar_email.dart';
 
 
+import '../servicios_firebase/firestore_services_usuario.dart';
 import '../styles/colors.dart';
 
 
@@ -48,6 +51,8 @@ class _MuroState extends State<Muro> {
   initState() {
     super.initState();
     checkEmailVerified();
+
+    _init();
 
 
 
@@ -90,6 +95,26 @@ class _MuroState extends State<Muro> {
           ));
 
     });
+  }
+  Future<void> _init() async {
+    print("push en _init");
+    if (Platform.isIOS) {
+      final settings = await FirebaseMessaging.instance.requestPermission();
+      if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+        FirebaseMessaging.instance.subscribeToTopic('promos');
+        FirebaseMessaging.instance.getToken().then((token) {
+          print("token ios ${token}");
+          ServiciosFirebaseUsuario().updateUserPerfilActualizadoTokenFb(token!);
+          // Print the Token in Console
+        });
+      }
+    } else {
+      FirebaseMessaging.instance.subscribeToTopic('promos');
+      FirebaseMessaging.instance.getToken().then((token) {
+        print("token android ${token}"); // Print the Token in Console
+        ServiciosFirebaseUsuario().updateUserPerfilActualizadoTokenFb(token!);
+      });
+    }
   }
 
 

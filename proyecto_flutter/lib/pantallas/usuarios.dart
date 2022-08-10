@@ -184,7 +184,7 @@ class _UsuariosState extends State<Usuarios> {
                                                   'usuarioDisplayName')),
                                               Text(snapshot
                                                   .data!.docs[index]
-                                                  .get('usuarioEmail')),
+                                                  .get('usuarioEmail'),style: TextStyle(fontSize: 12),),
                                             ],
                                           ),
                                         ),
@@ -229,7 +229,7 @@ class _UsuariosState extends State<Usuarios> {
                                                   style: TextStyle(
                                                       color: Colors
                                                           .white,
-                                                      fontSize: 14),
+                                                      fontSize: 12),
                                                 ),
                                               ],
                                             ),
@@ -260,7 +260,7 @@ class _UsuariosState extends State<Usuarios> {
                                                   style: TextStyle(
                                                       color: Colors
                                                           .white,
-                                                      fontSize: 14),
+                                                      fontSize: 12),
                                                 ),
                                               ],
                                             ),
@@ -275,7 +275,7 @@ class _UsuariosState extends State<Usuarios> {
                                           },
                                           child: Container(
                                             height: 40,
-                                            width: 100,
+                                            width: 80,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                 BorderRadius
@@ -293,7 +293,7 @@ class _UsuariosState extends State<Usuarios> {
                                                   style: TextStyle(
                                                       color: Colors
                                                           .white,
-                                                      fontSize: 14),
+                                                      fontSize: 12),
                                                 ),
                                               ],
                                             ),
@@ -334,7 +334,7 @@ class _UsuariosState extends State<Usuarios> {
                                           },
                                           child: Container(
                                             height: 40,
-                                            width: 100,
+                                            width: 80,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                 BorderRadius
@@ -350,7 +350,7 @@ class _UsuariosState extends State<Usuarios> {
                                                   style: TextStyle(
                                                       color: Colors
                                                           .white,
-                                                      fontSize: 14),
+                                                      fontSize: 12),
                                                 ),
                                               ],
                                             ),

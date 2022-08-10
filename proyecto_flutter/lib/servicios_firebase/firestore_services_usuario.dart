@@ -12,6 +12,8 @@ class ServiciosFirebaseUsuario   {
   final CollectionReference _usuarios =
   FirebaseFirestore.instance.collection('usuarios');
 
+  final CollectionReference _perfiles = FirebaseFirestore.instance.collection('perfiles');
+
   Future<void> nuevoUsuario(String usuarioId, String usuarioEmail, String usuarioDisplayName, DateTime usuarioFechaAlta, String metodoAutenticacion) async {
     await _usuarios.doc(usuarioId).set({
       "usuarioId": usuarioId,
@@ -83,7 +85,20 @@ class ServiciosFirebaseUsuario   {
   }
 
 
+  Future<void> updateUserPerfilActualizadoTokenFb(String tokenFb) {
+    User? usuario = FirebaseAuth.instance.currentUser;
 
+    return _perfiles
+        .doc(usuario!.email)
+        .update({''
+        'perfilActualizado': DateTime.now(),
+      'tokenFb': tokenFb,
+      'ultimoCambio': "Cambio de tokenFB"
+
+    })
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error"));
+  }
 
 
 
