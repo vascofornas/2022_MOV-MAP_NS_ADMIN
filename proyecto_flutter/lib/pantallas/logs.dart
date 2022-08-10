@@ -15,14 +15,14 @@ import '../servicios_firebase/firestore_services_usuario.dart';
 import '../styles/colors.dart';
 
 
-class Ubicaciones extends StatefulWidget {
-  const Ubicaciones({Key? key}) : super(key: key);
+class Logs extends StatefulWidget {
+  const Logs({Key? key}) : super(key: key);
 
   @override
-  State<Ubicaciones> createState() => _UbicacionesState();
+  State<Logs> createState() => _LogsState();
 }
 
-class _UbicacionesState extends State<Ubicaciones> {
+class _LogsState extends State<Logs> {
 
 
   //DATOS DEL USUARIO ACTUAL
@@ -83,7 +83,7 @@ class _UbicacionesState extends State<Ubicaciones> {
   bool esSki = false;
   bool esSnow = false;
   bool esSurf = false;
-  int numeroUbicaciones = 0;
+  int numeroLogs = 0;
 
 
   @override
@@ -107,7 +107,7 @@ class _UbicacionesState extends State<Ubicaciones> {
               ),
               backgroundColor: Colors.black,
               title: Text(
-                "Ubicaciones (${Provider.of<TodoProvider>(context).numUbicaciones}) ",
+                "Logs (${Provider.of<TodoProvider>(context).numLogs}) ",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -146,7 +146,7 @@ class _UbicacionesState extends State<Ubicaciones> {
                   child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
                     // inside the <> you enter the type of your stream
                     stream: FirebaseFirestore.instance
-                        .collection("ubicaciones")
+                        .collection("logs")
                         .snapshots(),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
@@ -154,29 +154,24 @@ class _UbicacionesState extends State<Ubicaciones> {
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
                             //snapshot.data!.docs[index].get('usuarioEmail'),
-                            numeroUbicaciones = snapshot.data!.docs.length;
-                            Provider.of<TodoProvider>(context).cambiarNumUbicaciones(numeroUbicaciones);
+                            numeroLogs= snapshot.data!.docs.length;
+                            Provider.of<TodoProvider>(context).cambiarNumLogs(numeroLogs);
 
 
 
                             String email =
                             snapshot.data!.docs[index].get('usuario');
 
-                            String ciudad = snapshot.data!.docs[index]
-                                .get('ciudad');
-                            String calle = snapshot.data!.docs[index]
-                                .get('calle');
-                            String pais = snapshot.data!.docs[index]
-                                .get('pais');
-                            String provincia = snapshot.data!.docs[index]
-                                .get('provincia');
+                            String motivo= snapshot.data!.docs[index]
+                                .get('motivoCambio');
+
 
                             Timestamp fechaalta = snapshot.data!.docs[index]
-                                .get('ubicacionActualizada');
-                            print("fecha alta ${fechaalta}");
+                                .get('logActualizado');
+
                             var date = fechaalta.toDate();
                             String myDate = DateFormat('dd/MM/yyyy,hh:mm').format(date);
-
+                        
 
 
 
@@ -227,28 +222,15 @@ class _UbicacionesState extends State<Ubicaciones> {
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-
                                     children: [
-                                      const Text(
-                                        "Calle:",
+                                      Text(
+                                        "Motivo:",
                                         style: TextStyle(
                                             color: Colors
                                                 .black,
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      SizedBox(width: 20,),
-                                      Text(
-                                        "${calle}",
-                                        style: const TextStyle(
-                                          color: Colors
-                                              .black,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-
-
-
                                     ],
                                   ),
                                   SizedBox(
@@ -258,50 +240,20 @@ class _UbicacionesState extends State<Ubicaciones> {
                                     mainAxisAlignment: MainAxisAlignment.start,
 
                                     children: [
-                                      const Text(
-                                        "Ciudad:",
-                                        style: TextStyle(
-                                            color: Colors
-                                                .black,
-                                            fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                      ),
+                                      const
                                       SizedBox(width: 20,),
-                                      Text(
-                                        "${ciudad}",
-                                        style: const TextStyle(
+                                      Container(
+                                        width: MediaQuery.of(context).size.width -40,
+                                        height: 120,
+                                        child: Text(
+                                          "${motivo}",
+                                          maxLines: 10,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
                                             color: Colors
                                                 .black,
                                             fontSize: 12,
-                                            ),
-                                      ),
-
-
-
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-
-                                    children: [
-                                      const Text(
-                                        "Pais:",
-                                        style: TextStyle(
-                                            color: Colors
-                                                .black,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SizedBox(width: 20,),
-                                      Text(
-                                        "${pais}",
-                                        style: const TextStyle(
-                                          color: Colors
-                                              .black,
-                                          fontSize: 12,
+                                          ),
                                         ),
                                       ),
 
@@ -312,12 +264,14 @@ class _UbicacionesState extends State<Ubicaciones> {
                                   SizedBox(
                                     height: 10,
                                   ),
+
+
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
 
                                     children: [
                                       const Text(
-                                        "Fecha ubicación:",
+                                        "Fecha log:",
                                         style: TextStyle(
                                             color: Colors
                                                 .black,
