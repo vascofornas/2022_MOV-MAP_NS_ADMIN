@@ -95,6 +95,8 @@ class _PerfilesState extends State<Perfiles> {
 
     bool esAmbassador = false;
 
+    var providerPerfiles = Provider.of<TodoProvider>(context);
+
 
     return SafeArea(
         child: Scaffold(
@@ -106,7 +108,7 @@ class _PerfilesState extends State<Perfiles> {
               ),
               backgroundColor: Colors.black,
               title: Text(
-                "Perfiles (${Provider.of<TodoProvider>(context).numPerfiles}) ",
+                "Perfiles (${providerPerfiles.numUsuarios}) ",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -154,8 +156,11 @@ class _PerfilesState extends State<Perfiles> {
                           itemBuilder: (context, index) {
                             //snapshot.data!.docs[index].get('usuarioEmail'),
                             numeroPerfiles = snapshot.data!.docs.length;
-                            Provider.of<TodoProvider>(context).cambiarNumPerfiles(numeroPerfiles);
 
+                            WidgetsBinding.instance.addPostFrameCallback((t) {
+                              Provider.of<TodoProvider>(context, listen: false)
+                                  .cambiarNumUsuarios(numeroPerfiles);
+                            });
                             var esAmbassador = snapshot.data!.docs[index]
                                 .get('esAmbassador');
 
@@ -181,7 +186,7 @@ class _PerfilesState extends State<Perfiles> {
                                 .get('fondoPerfil');
                             Timestamp fechaalta = snapshot.data!.docs[index]
                                 .get('fechaAlta');
-                            print("fecha alta ${fechaalta}");
+
                             var date = fechaalta.toDate();
                             String myDate = DateFormat('dd/MM/yyyy,hh:mm').format(date);
 
@@ -231,9 +236,9 @@ class _PerfilesState extends State<Perfiles> {
 
                             if (email.contains(controlador.text.toString()) ||
                                 dN.contains(controlador.text.toString())) {
-                              print("añadir");
+
                             } else {
-                              print("no añadir");
+
                             }
 
                             return email.contains(
@@ -529,12 +534,26 @@ class _PerfilesState extends State<Perfiles> {
                                     children: [
                                       const
                                       SizedBox(width: 20,),
-                                      Container(
+                                      sobremi.length > 100 ?Container(
                                         width:MediaQuery.of(context).size.width -40,
                                         height:140,
                                         child: Text(
                                           "${sobremi}",
                                           maxLines: 10,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+
+                                            color: Colors
+                                                .black,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ):Container(
+                                        width:MediaQuery.of(context).size.width -40,
+                                        height:20,
+                                        child: Text(
+                                          "${sobremi}",
+                                          maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
 
@@ -745,7 +764,10 @@ class _PerfilesState extends State<Perfiles> {
                       if (snapshot.hasError) {
                         return const Text('Error');
                       } else {
-                        return const CircularProgressIndicator();
+                        return Center(child: Container(
+                            width: 60,
+                            height: 60,
+                            child: const CircularProgressIndicator()));
                       }
                     },
                   ),

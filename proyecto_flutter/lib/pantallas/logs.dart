@@ -95,6 +95,8 @@ class _LogsState extends State<Logs> {
     double anchuraAvatar =70;
 
     bool esAmbassador = false;
+    var providerLogs = Provider.of<TodoProvider>(context);
+
 
 
     return SafeArea(
@@ -107,7 +109,7 @@ class _LogsState extends State<Logs> {
               ),
               backgroundColor: Colors.black,
               title: Text(
-                "Logs (${Provider.of<TodoProvider>(context).numLogs}) ",
+                "Logs (${providerLogs.numLogs}) ",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -155,7 +157,10 @@ class _LogsState extends State<Logs> {
                           itemBuilder: (context, index) {
                             //snapshot.data!.docs[index].get('usuarioEmail'),
                             numeroLogs= snapshot.data!.docs.length;
-                            Provider.of<TodoProvider>(context).cambiarNumLogs(numeroLogs);
+                            WidgetsBinding.instance.addPostFrameCallback((t) {
+                              Provider.of<TodoProvider>(context, listen: false)
+                                  .cambiarNumLogs(numeroLogs);
+                            });
 
 
 
@@ -178,9 +183,9 @@ class _LogsState extends State<Logs> {
                             //texto a buscar
 
                             if (email.contains(controlador.text.toString()) ) {
-                              print("añadir");
+
                             } else {
-                              print("no añadir");
+
                             }
 
                             return email.contains(
@@ -242,12 +247,25 @@ class _LogsState extends State<Logs> {
                                     children: [
                                       const
                                       SizedBox(width: 20,),
-                                      Container(
+                                      motivo.length >100?Container(
                                         width: MediaQuery.of(context).size.width -40,
                                         height: 120,
                                         child: Text(
                                           "${motivo}",
                                           maxLines: 10,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            color: Colors
+                                                .black,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ):Container(
+                                        width: MediaQuery.of(context).size.width -40,
+                                        height: 20,
+                                        child: Text(
+                                          "${motivo}",
+                                          maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
                                             color: Colors
@@ -294,7 +312,7 @@ class _LogsState extends State<Logs> {
                                   ),
 
                                   SizedBox(
-                                    height: 30,
+                                    height: 20,
                                   ),
 
 
@@ -308,7 +326,10 @@ class _LogsState extends State<Logs> {
                       if (snapshot.hasError) {
                         return const Text('Error');
                       } else {
-                        return const CircularProgressIndicator();
+                        return Center(child: Container(
+                            width: 60,
+                            height: 60,
+                            child: const CircularProgressIndicator()));
                       }
                     },
                   ),

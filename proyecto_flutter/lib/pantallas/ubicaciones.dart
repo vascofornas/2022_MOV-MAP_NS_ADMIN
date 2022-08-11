@@ -83,7 +83,7 @@ class _UbicacionesState extends State<Ubicaciones> {
   bool esSki = false;
   bool esSnow = false;
   bool esSurf = false;
-  int numeroUbicaciones = 0;
+
 
 
   @override
@@ -96,6 +96,8 @@ class _UbicacionesState extends State<Ubicaciones> {
 
     bool esAmbassador = false;
 
+    var providerUbicaciones = Provider.of<TodoProvider>(context);
+
 
     return SafeArea(
         child: Scaffold(
@@ -107,7 +109,7 @@ class _UbicacionesState extends State<Ubicaciones> {
               ),
               backgroundColor: Colors.black,
               title: Text(
-                "Ubicaciones (${Provider.of<TodoProvider>(context).numUbicaciones}) ",
+                "Ubicaciones (${providerUbicaciones.numUbicaciones}) ",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -154,8 +156,11 @@ class _UbicacionesState extends State<Ubicaciones> {
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
                             //snapshot.data!.docs[index].get('usuarioEmail'),
-                            numeroUbicaciones = snapshot.data!.docs.length;
-                            Provider.of<TodoProvider>(context).cambiarNumUbicaciones(numeroUbicaciones);
+                            int numeroUbicaciones = snapshot.data!.docs.length;
+                            WidgetsBinding.instance.addPostFrameCallback((t) {
+                              Provider.of<TodoProvider>(context, listen: false)
+                                  .cambiarNumUbicaciones(numeroUbicaciones);
+                            });
 
 
 
@@ -173,7 +178,7 @@ class _UbicacionesState extends State<Ubicaciones> {
 
                             Timestamp fechaalta = snapshot.data!.docs[index]
                                 .get('ubicacionActualizada');
-                            print("fecha alta ${fechaalta}");
+
                             var date = fechaalta.toDate();
                             String myDate = DateFormat('dd/MM/yyyy,hh:mm').format(date);
 
@@ -183,9 +188,9 @@ class _UbicacionesState extends State<Ubicaciones> {
                             //texto a buscar
 
                             if (email.contains(controlador.text.toString()) ) {
-                              print("añadir");
+
                             } else {
-                              print("no añadir");
+
                             }
 
                             return email.contains(
@@ -354,7 +359,10 @@ class _UbicacionesState extends State<Ubicaciones> {
                       if (snapshot.hasError) {
                         return const Text('Error');
                       } else {
-                        return const CircularProgressIndicator();
+                        return Center(child: Container(
+                            width: 60,
+                            height: 60,
+                            child: const CircularProgressIndicator()));
                       }
                     },
                   ),

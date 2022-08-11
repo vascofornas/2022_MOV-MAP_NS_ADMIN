@@ -82,6 +82,10 @@ class _UsuariosState extends State<Usuarios> {
 
   @override
   Widget build(BuildContext context) {
+
+
+    var providerUsuarios = Provider.of<TodoProvider>(context);
+
     return SafeArea(
         child: Scaffold(
             backgroundColor: Colors.white,
@@ -92,7 +96,7 @@ class _UsuariosState extends State<Usuarios> {
               ),
               backgroundColor: Colors.black,
               title: Text(
-                "Usuarios (${Provider.of<TodoProvider>(context).numUsuarios})",
+                "Usuarios (${providerUsuarios.numUsuarios})",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -140,7 +144,13 @@ class _UsuariosState extends State<Usuarios> {
                           itemBuilder: (context, index) {
                             //snapshot.data!.docs[index].get('usuarioEmail'),
                            numeroUsuarios = snapshot.data!.docs.length;
-                          Provider.of<TodoProvider>(context).cambiarNumUsuarios(numeroUsuarios);
+
+
+                           WidgetsBinding.instance.addPostFrameCallback((t) {
+                             Provider.of<TodoProvider>(context, listen: false)
+                                 .cambiarNumUsuarios(numeroUsuarios);
+                           });
+
                             var esAmbassador = snapshot.data!.docs[index]
                                 .get('usuarioEsAmbassador');
                             var esAdministrador = snapshot.data!.docs[index]
@@ -156,9 +166,9 @@ class _UsuariosState extends State<Usuarios> {
 
                             if (email.contains(controlador.text.toString()) ||
                                 dN.contains(controlador.text.toString())) {
-                              print("añadir");
+
                             } else {
-                              print("no añadir");
+
                             }
 
                             return email.contains(
@@ -412,7 +422,10 @@ class _UsuariosState extends State<Usuarios> {
                       if (snapshot.hasError) {
                         return const Text('Error');
                       } else {
-                        return const CircularProgressIndicator();
+                        return Center(child: Container(
+                          width: 60,
+                            height: 60,
+                            child: const CircularProgressIndicator()));
                       }
                     },
                   ),
