@@ -20,12 +20,15 @@ class SplashScreenState extends State<SplashScreen> {
   String _projectVersion = '';
 
   String _projectName = '';
+  String year = "";
 
   @override
   void initState() {
     super.initState();
 
     initPlatformState(); //#0004
+    var ahora = DateTime.now();
+    year = ahora.year.toString();
 
     Future.delayed(Duration(seconds: 6), () {
       //#005
@@ -85,14 +88,14 @@ class SplashScreenState extends State<SplashScreen> {
                     padding: const EdgeInsets.all(3.0),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.red,
-                        border: Border.all(color: Colors.red)),
+                        color: Colors.black,
+                        border: Border.all(color: Colors.black)),
                     child: Text(
-                      "Ⓒ Mov-Map Admin v${_projectVersion}",
+                      "Ⓒ${year} Mov-Map Admin v${_projectVersion}",
                       style: TextStyle(
                           color: Colors.white,
-                          backgroundColor: Colors.red,
-                          fontSize: 14,
+                          backgroundColor: Colors.black,
+                          fontSize: 12,
                           fontWeight: FontWeight.bold),
                     ),
                   )
