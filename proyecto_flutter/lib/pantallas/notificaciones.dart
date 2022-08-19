@@ -11,7 +11,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
 import 'package:movmap_ns_admin/pantallas/logs.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos_2.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_un_usuario.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_todos.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_un_usuario.dart';
 import 'package:movmap_ns_admin/pantallas/perfiles.dart';
 import 'package:movmap_ns_admin/pantallas/ubicaciones.dart';
 import 'package:movmap_ns_admin/pantallas/usuarios.dart';
@@ -199,11 +201,10 @@ class _NotificacionesState extends State<Notificaciones> {
                               ),
                               InkWell(
                                 onTap: (){
-                                  print("Abrir perfiles");
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Perfiles(), //#0006
+                                        builder: (context) => PushAUnUsuario(), //#0006
                                       ));
 
                                 },
