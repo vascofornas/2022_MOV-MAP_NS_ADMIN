@@ -10,6 +10,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
 import 'package:movmap_ns_admin/pantallas/logs.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos_2.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_todos.dart';
 import 'package:movmap_ns_admin/pantallas/perfiles.dart';
 import 'package:movmap_ns_admin/pantallas/ubicaciones.dart';
 import 'package:movmap_ns_admin/pantallas/usuarios.dart';
@@ -171,11 +173,12 @@ class _NotificacionesState extends State<Notificaciones> {
                             children: [
                               InkWell(
                                 onTap: (){
-                                  print("Abrir usuarios");
-                                  Navigator.push(
+                                 // ServiciosFirebaseUsuario().sendPushMessage("eK0F8hpx7EjIlym7zbtJFP:APA91bEnOClDqN9sCiKwOKG6Zq35-BmnUvACj63yAWhf-ITabG14iJ6f32yih8Hgmrv1nJKGLZ0xAiPJwVNjnFuO01wWFm4NxBem6cy6cNr0R2-Iu8YHiyr1yeF_PafkXs-fc7vvaoYq", "UASA", "ASD");
+
+                                Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Usuarios(), //#0006
+                                        builder: (context) => TextoPushATodos(), //#0006
                                       ));
                                 },
                                 child: Container(

@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 
 
@@ -107,7 +110,34 @@ class ServiciosFirebaseUsuario   {
         .then((value) => print("User Updated"))
         .catchError((error) => print("Failed to update user: $error"));
   }
-
+  void sendPushMessage(String token, String title, String body) async {
+    try {
+      await http.post(
+        Uri.parse('https://fcm.googleapis.com/fcm/send'),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Authorization': 'key=AAAALISYRlg:APA91bFYb92enGcwlf-cv5JsmrrIysIGa2OsmZTxBgOmw13oGr2Lon7p5gcMy5mAtWUZoUpUc3pVIcRuY02jplmZxsNgox9TiCyageBYWluBdGckBRfXcRM9uOlUXpBDLg8_LCycaFHR',
+        },
+        body: jsonEncode(
+          <String, dynamic>{
+            'notification': <String, dynamic>{
+              'body': body,
+              'title': title
+            },
+            'priority': 'high',
+            'data': <String, dynamic>{
+              'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+              'id': '1',
+              'status': 'done'
+            },
+            "to": token,
+          },
+        ),
+      );
+    } catch (e) {
+      print("error push notification");
+    }
+  }
 
 
 
