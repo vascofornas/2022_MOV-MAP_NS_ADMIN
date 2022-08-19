@@ -16,17 +16,17 @@ import '../../servicios_firebase/firestore_services_usuario.dart';
 
 
 
-class PushAAdministradores extends StatefulWidget {
-  const PushAAdministradores({Key? key, required this.titulo, required this.texto}) : super(key: key);
+class PushAAmbassadors extends StatefulWidget {
+  const PushAAmbassadors({Key? key, required this.titulo, required this.texto}) : super(key: key);
   final String titulo;
   final String texto;
 
 
   @override
-  State<PushAAdministradores> createState() => _PushAAdministradoresState();
+  State<PushAAmbassadors> createState() => _PushAAmbassadorsState();
 }
 
-class _PushAAdministradoresState extends State<PushAAdministradores> {
+class _PushAAmbassadorsState extends State<PushAAmbassadors> {
   //DATOS DEL USUARIO ACTUAL
 
   final auth = FirebaseAuth.instance;
@@ -44,12 +44,12 @@ class _PushAAdministradoresState extends State<PushAAdministradores> {
     super.initState();
     checkEmailVerified();
     FirebaseFirestore.instance
-        .collection('usuarios')
-    .where('usuarioEsAdministrador',isEqualTo: true)
+        .collection('perfiles')
+    .where('esAmbassador',isEqualTo: true)
         .get()
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
-        print("admin "+doc["usuarioEmail"]);
+        print("admin "+doc["email"]);
         numeroUsuarios++;
         WidgetsBinding.instance.addPostFrameCallback((t) {
           Provider.of<TodoProvider>(context, listen: false)
@@ -112,7 +112,7 @@ class _PushAAdministradoresState extends State<PushAAdministradores> {
           ),
           backgroundColor: Colors.black,
           title: Text(
-            "Push a administradores",
+            "Push a ambassadors",
             style: TextStyle(color: Colors.white),
           ),
         ),

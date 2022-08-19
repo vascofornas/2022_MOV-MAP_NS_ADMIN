@@ -13,6 +13,7 @@ import 'package:movmap_ns_admin/pantallas/logs.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_un_usuario.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_admins.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_ambassadors.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_todos.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_un_usuario.dart';
 import 'package:movmap_ns_admin/pantallas/perfiles.dart';
@@ -257,11 +258,10 @@ class _NotificacionesState extends State<Notificaciones> {
                               ),
                               InkWell(
                                 onTap: (){
-                                  print("Abrir logs");
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Logs(), //#0006
+                                        builder: (context) => TextoPushAAmbassadors(), //#0006
                                       ));
 
                                 },
