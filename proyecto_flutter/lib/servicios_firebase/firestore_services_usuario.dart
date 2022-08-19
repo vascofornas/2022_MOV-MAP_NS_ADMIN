@@ -96,20 +96,7 @@ class ServiciosFirebaseUsuario   {
   }
 
 
-  Future<void> updateUserPerfilActualizadoTokenFb(String tokenFb) {
-    User? usuario = FirebaseAuth.instance.currentUser;
 
-    return _perfiles
-        .doc(usuario!.email)
-        .update({''
-        'perfilActualizado': DateTime.now(),
-      'tokenFb': tokenFb,
-      'ultimoCambio': "Cambio de tokenFB"
-
-    })
-        .then((value) => print("User Updated"))
-        .catchError((error) => print("Failed to update user: $error"));
-  }
   void sendPushMessage(String token, String title, String body) async {
     try {
       await http.post(

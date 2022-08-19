@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos_2.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos.dart';
 
 import '../../servicios_firebase/firestore_services_usuario.dart';
 import '../../styles/colors.dart';

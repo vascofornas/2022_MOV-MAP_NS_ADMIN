@@ -108,7 +108,7 @@ class _MuroState extends State<Muro> {
         FirebaseMessaging.instance.subscribeToTopic('promos');
         FirebaseMessaging.instance.getToken().then((token) {
           print("token ios ${token}");
-          ServiciosFirebaseUsuario().updateUserPerfilActualizadoTokenFb(token!);
+
           // Print the Token in Console
         });
       }
@@ -116,7 +116,7 @@ class _MuroState extends State<Muro> {
       FirebaseMessaging.instance.subscribeToTopic('promos');
       FirebaseMessaging.instance.getToken().then((token) {
         print("token android ${token}"); // Print the Token in Console
-        ServiciosFirebaseUsuario().updateUserPerfilActualizadoTokenFb(token!);
+
       });
     }
   }

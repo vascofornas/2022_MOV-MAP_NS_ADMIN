@@ -37,13 +37,7 @@ class _PushATodosUsuariosState extends State<PushATodosUsuarios> {
   String textoBuscado = "";
   int numeroUsuarios = 0;
 
-  final Stream<DocumentSnapshot> _usersStream = FirebaseFirestore.instance
-      .collection("usuarios")
-      .doc(FirebaseAuth.instance.currentUser!.email)
-      .snapshots();
 
-  final Stream<QuerySnapshot> _usuarios =
-  FirebaseFirestore.instance.collection('usuarios').snapshots();
 
   @override
   initState() {

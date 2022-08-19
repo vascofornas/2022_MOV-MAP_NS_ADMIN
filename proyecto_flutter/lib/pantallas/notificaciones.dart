@@ -10,8 +10,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
 import 'package:movmap_ns_admin/pantallas/logs.dart';
-import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos_2.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_un_usuario.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_admins.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_todos.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_un_usuario.dart';
 import 'package:movmap_ns_admin/pantallas/perfiles.dart';
@@ -111,7 +112,7 @@ class _NotificacionesState extends State<Notificaciones> {
         FirebaseMessaging.instance.subscribeToTopic('promos');
         FirebaseMessaging.instance.getToken().then((token) {
           print("token ios ${token}");
-          ServiciosFirebaseUsuario().updateUserPerfilActualizadoTokenFb(token!);
+
           // Print the Token in Console
         });
       }
@@ -119,7 +120,7 @@ class _NotificacionesState extends State<Notificaciones> {
       FirebaseMessaging.instance.subscribeToTopic('promos');
       FirebaseMessaging.instance.getToken().then((token) {
         print("token android ${token}"); // Print the Token in Console
-        ServiciosFirebaseUsuario().updateUserPerfilActualizadoTokenFb(token!);
+
       });
     }
   }
@@ -232,11 +233,10 @@ class _NotificacionesState extends State<Notificaciones> {
                             children: [
                               InkWell(
                                 onTap: (){
-                                  print("Abrir ubicaciones");
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Ubicaciones(), //#0006
+                                        builder: (context) => TextoPushAAdmins(), //#0006
                                       ));
                                 },
                                 child: Container(

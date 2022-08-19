@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_administradores.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos.dart';
 
 import '../../styles/colors.dart';
 
-class TextoPushATodos extends StatefulWidget {
-  const TextoPushATodos({Key? key}) : super(key: key);
+class TextoPushAAdmins extends StatefulWidget {
+  const TextoPushAAdmins({Key? key}) : super(key: key);
 
   @override
-  State<TextoPushATodos> createState() => _TextoPushATodosState();
+  State<TextoPushAAdmins> createState() => _TextoPushAAdminsState();
 }
 
-class _TextoPushATodosState extends State<TextoPushATodos> {
+class _TextoPushAAdminsState extends State<TextoPushAAdmins> {
   TextEditingController tituloController = TextEditingController();
   TextEditingController bodyController = TextEditingController();
 
@@ -26,7 +27,7 @@ class _TextoPushATodosState extends State<TextoPushATodos> {
         ),
         backgroundColor: Colors.black,
         title: Text(
-          "Push a todos",
+          "Push a Administradores",
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -133,7 +134,7 @@ class _TextoPushATodosState extends State<TextoPushATodos> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PushATodosUsuarios(titulo: titulo,texto: texto,), //#0006
+                            builder: (context) => PushAAdministradores(titulo: titulo,texto: texto,), //#0006
                           ));
                     }
                   }
