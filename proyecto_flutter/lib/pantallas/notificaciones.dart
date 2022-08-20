@@ -14,6 +14,10 @@ import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_todos.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/push_a_un_usuario.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_admins.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_ambassadors.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_bmx.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_mtb.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_skate.dart';
+import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_surf.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_todos.dart';
 import 'package:movmap_ns_admin/pantallas/pantallas_push/textos_push_a_un_usuario.dart';
 import 'package:movmap_ns_admin/pantallas/perfiles.dart';
@@ -289,12 +293,12 @@ class _NotificacionesState extends State<Notificaciones> {
                             children: [
                               InkWell(
                                 onTap: (){
-                                  print("Abrir menu push");
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Ubicaciones(), //#0006
+                                        builder: (context) => TextoPushASkate(), //#0006
                                       ));
+
                                 },
                                 child: Container(
                                     width: 145,
@@ -314,11 +318,10 @@ class _NotificacionesState extends State<Notificaciones> {
                               ),
                               InkWell(
                                 onTap: (){
-                                  print("Abrir logs");
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Logs(), //#0006
+                                        builder: (context) => TextoPushASurf(), //#0006
                                       ));
 
                                 },
@@ -346,11 +349,10 @@ class _NotificacionesState extends State<Notificaciones> {
                             children: [
                               InkWell(
                                 onTap: (){
-                                  print("Abrir menu push");
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Ubicaciones(), //#0006
+                                        builder: (context) => TextoPushABMX(), //#0006
                                       ));
                                 },
                                 child: Container(
@@ -371,13 +373,12 @@ class _NotificacionesState extends State<Notificaciones> {
                               ),
                               InkWell(
                                 onTap: (){
-                                  print("Abrir logs");
+
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Logs(), //#0006
+                                        builder: (context) => TextoPushAMTB(), //#0006
                                       ));
-
                                 },
                                 child: Container(
                                     width: 145,
