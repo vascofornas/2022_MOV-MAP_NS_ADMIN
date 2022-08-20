@@ -323,32 +323,7 @@ class _MuroState extends State<Muro> {
                                   )
                               ),
                             ),
-                            InkWell(
-                              onTap: (){
-                                print("Abrir logs");
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Logs(), //#0006
-                                    ));
 
-                              },
-                              child: Container(
-                                  width: 140,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                      ),
-                                      borderRadius: BorderRadius.all(Radius.circular(20))
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text("Log",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
-                                  )
-                              ),
-                            ),
                           ],
                         )
                       ],
