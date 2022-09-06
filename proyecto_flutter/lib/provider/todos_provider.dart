@@ -5,6 +5,8 @@ class TodoProvider extends ChangeNotifier {
   int numPerfiles = 0;
   int numUbicaciones = 0;
   int numLogs = 0;
+  int numSeguimientos = 0;
+  int numAmistades = 0;
 
   void cambiarNumUsuarios(int s) {
 
@@ -26,6 +28,17 @@ class TodoProvider extends ChangeNotifier {
   void cambiarNumLogs(int s) {
 
     numLogs = s;
+    notifyListeners();
+  }
+  void cambiarNumSeguimientos(int s) {
+
+    numSeguimientos = s;
+    notifyListeners();
+  }
+
+  void cambiarNumAmistades(int s) {
+
+    numAmistades = s;
     notifyListeners();
   }
 

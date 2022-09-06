@@ -8,10 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:movmap_ns_admin/pantallas/amistades.dart';
 import 'package:movmap_ns_admin/pantallas/login.dart';
 import 'package:movmap_ns_admin/pantallas/logs.dart';
 import 'package:movmap_ns_admin/pantallas/notificaciones.dart';
 import 'package:movmap_ns_admin/pantallas/perfiles.dart';
+import 'package:movmap_ns_admin/pantallas/seguimientos.dart';
 import 'package:movmap_ns_admin/pantallas/ubicaciones.dart';
 import 'package:movmap_ns_admin/pantallas/usuarios.dart';
 import 'package:movmap_ns_admin/pantallas/verificar_email.dart';
@@ -323,6 +325,64 @@ class _MuroState extends State<Muro> {
                                   )
                               ),
                             ),
+                            InkWell(
+                              onTap: (){
+                                print("Abrir menu seguimientos");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Seguimientos(), //#0006
+                                    ));
+                              },
+                              child: Container(
+                                  width: 140,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text("Seguimientos",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
+                                  )
+                              ),
+                            ),
+
+                          ],
+                        ),
+                        SizedBox(height: 40,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            InkWell(
+                              onTap: (){
+                                print("Abrir menu amistades");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Amistades(), //#0006
+                                    ));
+                              },
+                              child: Container(
+                                  width: 140,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
+                                      borderRadius: BorderRadius.all(Radius.circular(20))
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text("Amistades",textAlign: TextAlign.center, style: TextStyle(color: Colors.white,fontSize: 18),),
+                                  )
+                              ),
+                            ),
+
 
                           ],
                         )
